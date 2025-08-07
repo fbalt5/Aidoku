@@ -564,9 +564,11 @@ extension MangaView {
 
 extension MangaView {
     func openReaderView(chapter: AidokuRunner.Chapter) {
+        var mangaWithFilteredChapters = viewModel.manga
+        mangaWithFilteredChapters.chapters = viewModel.chapters
         let readerController = ReaderViewController(
             source: source,
-            manga: viewModel.manga,
+            manga: mangaWithFilteredChapters,
             chapter: chapter
         )
         let navigationController = ReaderNavigationController(rootViewController: readerController)
